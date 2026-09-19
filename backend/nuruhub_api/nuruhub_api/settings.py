@@ -1,6 +1,4 @@
-"""
-Django settings for nuruhub_api project.
-"""
+ 
 import os
 from pathlib import Path
 
