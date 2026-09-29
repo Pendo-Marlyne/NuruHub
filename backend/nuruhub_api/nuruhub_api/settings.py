@@ -1,4 +1,4 @@
- 
+import dj_database_url
 import os
 from pathlib import Path
 
@@ -61,14 +61,9 @@ WSGI_APPLICATION = 'nuruhub_api.wsgi.application'
 # PostgreSQL with SQLite fallback for local dev
 if config('DB_ENGINE', default='sqlite') == 'postgresql':
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': config('DB_NAME', default='nuru_hub_db'),
-            'USER': config('DB_USER', default='postgres'),
-            'PASSWORD': config('DB_PASSWORD', default='2008'),
-            'HOST': config('DB_HOST', default='localhost'),
-            'PORT': config('DB_PORT', default='5432'),
-        }
+        'default': dj_database_url.config(
+            default=config('DATABASE_URL', default='postgresql://postgres:password@localhost/nuru_hub_db')
+        )
     }
 else:
     DATABASES = {
