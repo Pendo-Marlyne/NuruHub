@@ -29,7 +29,7 @@
 ### User Roles
 
 - **Student** — Full study & resource features
-- **Contributor** — Upload paid/free resources, view earnings (toggle without separate account)
+- **Contributor** — Upload resources
 - **Administrator** — Moderate resources, manage reports, verify premium listings
 
 ---
@@ -38,9 +38,9 @@
 
 ### Prerequisites
 
-- Python 3.11+
-- Node.js 18+
-- PostgreSQL 14+ (optional — SQLite used by default)
+- Python 
+- Node.js 
+- PostgreSQL 
 
 ### 1. Backend
 
@@ -49,17 +49,9 @@ cd backend
 pip install -r requirements.txt
 cd nuruhub_api
 
-# Copy env and adjust if using PostgreSQL
-copy ..\.env.example ..\.env
-
-python manage.py migrate
-python manage.py seed_demo    # optional demo data
-python manage.py createsuperuser
-
 python manage.py runserver
-```
-
-Backend runs at **http://127.0.0.1:8000**
+``
+Backend runs at 
 
 ### 2. Frontend
 
@@ -71,32 +63,12 @@ npm run dev
 
 Frontend runs at **http://127.0.0.1:5173**
 
+nuru-hub.vercel.app
 ---
 
 ## Verify System Is Live
 
 ### Health check (no auth required)
-
-```bash
-curl http://127.0.0.1:8000/api/health/
-```
-
-Expected response:
-
-```json
-{
-  "status": "ok",
-  "service": "NuruHub API",
-  "version": "1.0.0",
-  "message": "System is live and operating."
-}
-```
-
-### API root
-
-```bash
-curl http://127.0.0.1:8000/api/
-```
 
 ### Register & login
 
@@ -114,18 +86,6 @@ curl -X POST http://127.0.0.1:8000/api/auth/register/ \
 
 ---
 
-## PostgreSQL Setup
-
-Set in `backend/.env`:
-
-```env
-DB_ENGINE=postgresql
-DB_NAME=nuruhub
-DB_USER=postgres
-DB_PASSWORD=yourpassword
-DB_HOST=localhost
-DB_PORT=5432
-```
 
 Create the database:
 
@@ -150,10 +110,7 @@ MPESA_CALLBACK_URL=https://yourdomain.com/api/resources/payments/callback/
 MPESA_ENV=sandbox
 ```
 
-Without credentials, purchases are **simulated** automatically for development.
-
----
-
+Without credentials, purchases are **simulated** automatically f
 ## API Endpoints
 
 | Area | Base URL |
