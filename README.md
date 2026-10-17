@@ -11,8 +11,8 @@
 | Frontend | React 19, Vite, React Router, Context API, Axios, Tailwind CSS |
 | Backend | Python Django, Django REST Framework |
 | Auth | Token-based authentication, role-based permissions |
-| Database | PostgreSQL (production) / SQLite (local dev default) |
-| Payments | Safaricom Daraja API — M-Pesa STK Push |
+| Database | PostgreSQL (production)  |
+
 
 ## Features
 
@@ -97,20 +97,6 @@ Then run `python manage.py migrate`.
 
 ---
 
-## M-Pesa (Safaricom Daraja)
-
-Set in `backend/.env`:
-
-```env
-MPESA_CONSUMER_KEY=your_key
-MPESA_CONSUMER_SECRET=your_secret
-MPESA_SHORTCODE=174379
-MPESA_PASSKEY=your_passkey
-MPESA_CALLBACK_URL=https://yourdomain.com/api/resources/payments/callback/
-MPESA_ENV=sandbox
-```
-
-Without credentials, purchases are **simulated** automatically f
 ## API Endpoints
 
 | Area | Base URL |
@@ -150,14 +136,7 @@ NuruHub/
 
 ---
 
-## Demo Account (after seed)
 
-| Field | Value |
-|-------|-------|
-| Username | `demo` |
-| Password | `demo12345` |
-
----
 
 ## License
 
